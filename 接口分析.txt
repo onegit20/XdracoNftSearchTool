@@ -1,0 +1,65 @@
+
+"petName": "复活法师九妙郎"
+
+
+"petName": "Resurrector Darknyan"
+
+iconPath:
+https://file.mir4global.com/xdraco-thumb/Content/UI/Atlas_N_Resource/Icon/Pet/Pet_Portrait/Icon_Item_Pet_Cat03.png
+
+
+https://www.xdraco.com/nft/list/
+
+
+
+
+https://webapi.mir4global.com/nft/lists?listType=sale&class=0&levMin=0&levMax=0&powerMin=0&powerMax=0&priceMin=0&priceMax=0&sort=latest&page=1&languageCode=zh-Hans
+
+
+https://www.xdraco.com/nft/trade/714457    nft角色地址
+
+https://webapi.mir4global.com/nft/character/holystuff?transportID=126806&languageCode=zh-Hans  圣物
+
+
+金  红  蓝  绿
+L   E   R   U
+
+legendary   eqic  rare  uncommon  common
+
+
+
+https://webapi.mir4global.com/nft/character/summary?seq=714457&languageCode=zh-Hans   角色概要
+
+
+https://webapi.mir4global.com/nft/character/stats?transportID=126806&languageCode=zh-Hans  能力值
+
+
+https://webapi.mir4global.com/nft/character/skills?transportID=126806&class=4&languageCode=zh-Hans  技能
+
+
+https://webapi.mir4global.com/nft/character/spirit?transportID=126806&languageCode=zh-Hans  精灵
+
+
+https://webapi.mir4global.com/nft/character/magicstone?transportID=126806&languageCode=zh-Hans  魔石
+
+
+https://webapi.mir4global.com/nft/character/training?transportID=126806&languageCode=zh-Hans  修炼
+
+
+https://webapi.mir4global.com/nft/character/building?transportID=126806&languageCode=zh-Hans  伟业
+
+
+https://webapi.mir4global.com/nft/character/mysticalpiece?transportID=126806&languageCode=zh-Hans  宝牌
+
+
+https://webapi.mir4global.com/nft/character/assets?transportID=126806&languageCode=zh-Hans  物资
+
+
+https://webapi.mir4global.com/nft/character/codex?transportID=126806&languageCode=zh-Hans  宝鉴
+
+
+https://webapi.mir4global.com/nft/character/inven?transportID=126806&languageCode=zh-Hans  背包 (龙神器也从这个接口读取的)
+
+
+https://webapi.mir4global.com/nft/character/tradehistory?tokenID=52910&languageCode=zh-Hans  交易历史
+
