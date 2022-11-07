@@ -39,6 +39,13 @@ public:
 	void set_have_resurrector_darknyan(bool have_resurrector_darknyan);
 	const char* draknyan_icon_path();
 
+	int inven_count();
+	void set_inven_count(int inven_count);
+	int legendary_core_count();
+	void set_legendary_core_count(int legendary_core_count);
+	int legendary_book_count();
+	void set_legendary_book_count(int legendary_book_count);
+
 	int consitution_level();
 	void set_consitution_level(int consitution_level);
 
@@ -79,6 +86,10 @@ private:
 	int legendary_pets_count_;
 	bool have_resurrector_darknyan_;
 	const char* draknyan_icon_path_;
+
+	int inven_count_;
+	int legendary_core_count_;
+	int legendary_book_count_;
 
 	int consitution_level_;
 

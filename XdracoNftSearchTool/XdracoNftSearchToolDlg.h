@@ -1,8 +1,4 @@
-﻿
-// XdracoNftSearchToolDlg.h: 头文件
-//
-
-#pragma once
+﻿#pragma once
 
 
 // CXdracoNftSearchToolDlg 对话框
@@ -66,4 +62,8 @@ public:
 	afx_msg void OnDblclkList(NMHDR* pNMHDR, LRESULT* pResult);
 	static UINT __cdecl SearchNft(LPVOID pParam);
 	BOOL m_bSearching;
+	afx_msg void OnBnClickedCheck1();
+	afx_msg void OnBnClickedCheck2();
+	CButton m_chk1;
+	CButton m_chk2;
 };

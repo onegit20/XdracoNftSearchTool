@@ -57,7 +57,7 @@ bool LibcurlHttp::HttpRequest(std::string url, std::string &response, bool get, 
         ret = !(bool)res;
         if (res != CURLE_OK) {
             //fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
-            std::cout << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
+            //std::cout << "curl_easy_perform() failed: " << curl_easy_strerror(res) << std::endl;
         }
         else {
             response = chunk.memory;

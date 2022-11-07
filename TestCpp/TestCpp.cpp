@@ -164,7 +164,54 @@ int main()
 
     //}
 
-cout << true << endl;
+json j3 = json::parse(R"(
+   {
+    "code": 200, 
+    "data": [
+        {
+            "itemUID": "433513969282973696", 
+            "itemID": "902100301", 
+            "enhance": 0, 
+            "stack": 12803, 
+            "tranceStep": 0, 
+            "uniqueNo": "", 
+            "limited": "", 
+            "itemName": "[UC] Platinum", 
+            "grade": "2", 
+            "mainType": 9, 
+            "subType": 2, 
+            "tabCategory": 2, 
+            "tier": "1", 
+            "itemPath": "https://file.mir4global.com/xdraco-thumb/Content/UI/Atlas_N_Resource/Icon/Item/Meterial_01/Item_Mineing_015.png"
+        }, 
+        {
+            "itemUID": "434301872443228161", 
+            "itemID": "1702200001", 
+            "enhance": 0, 
+            "stack": 0, 
+            "tranceStep": 0, 
+            "uniqueNo": "", 
+            "limited": "", 
+            "itemName": "Soulseeker Pickaxe", 
+            "grade": "2", 
+            "mainType": 17, 
+            "subType": 2, 
+            "tabCategory": 4, 
+            "tier": "1", 
+            "itemPath": "https://file.mir4global.com/xdraco-thumb/Content/UI/Atlas_N_Resource/Icon/Pet/Pet_Equip/Item_PetEquip_Pickax01.png"
+        }
+    ]
+}
+)");
+
+    json j = j3["data"][1];
+
+    cout << j << endl;
+
+    std::string str = "2";
+
+    if (str == j["grade"])
+        cout << "OK" << endl;
 
     return 0;
 

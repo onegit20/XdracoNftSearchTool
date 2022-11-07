@@ -9,7 +9,9 @@ Character::Character() :
 	legendary_pets_count_(0),
 	have_resurrector_darknyan_(false),
 	draknyan_icon_path_("https://file.mir4global.com/xdraco-thumb/Content/UI/Atlas_N_Resource/Icon/Pet/Pet_Portrait/Icon_Item_Pet_Cat03.png"),
-	consitution_level_(0){}
+	consitution_level_(0),
+	legendary_core_count_(0),
+	legendary_book_count_(0){}
 
 int Character::row_id() {
 	return row_id_;
@@ -80,6 +82,13 @@ void Character::set_legendary_pets_count(int legendary_pets_count) { legendary_p
 bool Character::have_resurrector_darknyan() { return have_resurrector_darknyan_; }
 void Character::set_have_resurrector_darknyan(bool have_resurrector_darknyan) { have_resurrector_darknyan_ = have_resurrector_darknyan; }
 const char* Character::draknyan_icon_path() { return draknyan_icon_path_; }
+
+int Character::inven_count() { return inven_count_; }
+void Character::set_inven_count(int inven_count) { inven_count_ = inven_count; }
+int Character::legendary_core_count() { return legendary_core_count_; }
+void Character::set_legendary_core_count(int legendary_core_count) { legendary_core_count_ = legendary_core_count; }
+int Character::legendary_book_count() { return legendary_book_count_; }
+void Character::set_legendary_book_count(int legendary_book_count) { legendary_book_count_ = legendary_book_count; }
 
 int Character::consitution_level() {
 	return consitution_level_;
