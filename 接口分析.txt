@@ -24,7 +24,7 @@ https://webapi.mir4global.com/nft/character/holystuff?transportID=126806&languag
 金  红  蓝  绿
 L   E   R   U
 
-legendary   eqic  rare  uncommon  common
+legendary   epic  rare  uncommon  common
 
 
 
