@@ -46,6 +46,15 @@ public:
 	int legendary_book_count();
 	void set_legendary_book_count(int legendary_book_count);
 
+	int meterial_secret_01();
+	void set_meterial_secret_01(int meterial_secret_01);
+	int meterial_secret_02();
+	void set_meterial_secret_02(int meterial_secret_02);
+	int meterial_secret_03();
+	void set_meterial_secret_03(int meterial_secret_03);
+	int meterial_secret_04();
+	void set_meterial_secret_04(int meterial_secret_04);
+
 	int consitution_level();
 	void set_consitution_level(int consitution_level);
 
@@ -90,6 +99,11 @@ private:
 	int inven_count_;
 	int legendary_core_count_;
 	int legendary_book_count_;
+
+	int meterial_secret_01_;
+	int meterial_secret_02_;
+	int meterial_secret_03_;
+	int meterial_secret_04_;
 
 	int consitution_level_;
 

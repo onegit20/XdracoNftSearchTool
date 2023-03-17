@@ -89,7 +89,7 @@ BOOL CXdracoNftSearchToolDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
-	SetWindowTextW(L"xdraco.com NFT角色查找工具 v0.4.4");
+	SetWindowTextW(L"xdraco.com NFT角色查找工具 v0.5.0");
 	CRect myrect(0, 0, 800, 600);
 	CWnd::SetWindowPos(NULL, 0, 0, myrect.Width(), myrect.Height(), SWP_NOZORDER | SWP_NOMOVE);
 
@@ -110,6 +110,7 @@ BOOL CXdracoNftSearchToolDlg::OnInitDialog()
 	m_characterclass.AddString(L"道士");
 	m_characterclass.AddString(L"弩手");
 	m_characterclass.AddString(L"武士");
+	m_characterclass.AddString(L"黑道士");
 	m_characterclass.SetCurSel(0);
 
 	m_slevel.MoveWindow(40, 80, 30, 24);
@@ -149,14 +150,18 @@ BOOL CXdracoNftSearchToolDlg::OnInitDialog()
 	m_list.InsertColumn(1, L"职业", LVCFMT_LEFT, 40);
 	m_list.InsertColumn(2, L"等级", LVCFMT_LEFT, 40);
 	m_list.InsertColumn(3, L"战力", LVCFMT_LEFT, 60);
-	m_list.InsertColumn(4, L"价格(w币)", LVCFMT_LEFT, 100);
-	m_list.InsertColumn(5, L"红宠数", LVCFMT_LEFT, 60);
-	m_list.InsertColumn(6, L"金宠数", LVCFMT_LEFT, 60);
-	m_list.InsertColumn(7, L"复活猫", LVCFMT_LEFT, 60);
+	m_list.InsertColumn(4, L"价格(w币)", LVCFMT_LEFT, 80);
+	m_list.InsertColumn(5, L"红宠数", LVCFMT_LEFT, 50);
+	m_list.InsertColumn(6, L"金宠数", LVCFMT_LEFT, 50);
+	m_list.InsertColumn(7, L"复活猫", LVCFMT_LEFT, 50);
 	m_list.InsertColumn(8, L"体质", LVCFMT_LEFT, 40);
 	m_list.InsertColumn(9, L"金核", LVCFMT_LEFT, 40);
 	m_list.InsertColumn(10, L"金书", LVCFMT_LEFT, 40);
-	m_list.InsertColumn(11, L"购买链接", LVCFMT_LEFT, width - 20 - 580);
+	m_list.InsertColumn(11, L"飞魂晶", LVCFMT_LEFT, 50);
+	m_list.InsertColumn(12, L"武魂晶", LVCFMT_LEFT, 50);
+	m_list.InsertColumn(13, L"血魂晶", LVCFMT_LEFT, 50);
+	m_list.InsertColumn(14, L"天魂晶", LVCFMT_LEFT, 50);
+	m_list.InsertColumn(15, L"购买链接", LVCFMT_LEFT, width - 20 - 580 - 110);
 	m_list.SetExtendedStyle(LVS_EX_GRIDLINES | LVS_EX_FULLROWSELECT);  //经纬线|选中高亮
 
 	m_cancel.EnableWindow(0);
@@ -265,7 +270,7 @@ void CXdracoNftSearchToolDlg::OnDblclkList(NMHDR* pNMHDR, LRESULT* pResult)
 	// TODO: 在此添加控件通知处理程序代码
 	//以下两种方式都行
 	//ShellExecute(NULL, _T("open"), m_list.GetItemText(m_list.GetNextItem(-1, LVNI_SELECTED), 9), NULL, NULL, SW_SHOW);
-	ShellExecute(NULL, _T("open"), m_list.GetItemText(pNMItemActivate->iItem, 11), NULL, NULL, SW_SHOW);
+	ShellExecute(NULL, _T("open"), m_list.GetItemText(pNMItemActivate->iItem, 15), NULL, NULL, SW_SHOW);
 	*pResult = 0;
 }
 
@@ -461,6 +466,16 @@ UINT __cdecl CXdracoNftSearchToolDlg::SearchNft(LPVOID pParam) {
 						else if (j2["mainType"] == 20 && j2["subType"] == 1)  //副武器
 							core_count++;
 					}
+					else if (j2["tabCategory"] == 2 && j2["mainType"] == 14 && j2["subType"] == 1) {  //英雄结晶
+						if (j2["itemID"] == "1401200654")  //英雄飞魂结晶
+							mycharacter.set_meterial_secret_01(j2["stack"]);
+						else if (j2["itemID"] == "1401200664")  //英雄武魂结晶
+							mycharacter.set_meterial_secret_02(j2["stack"]);
+						else if (j2["itemID"] == "1401200674")  //英雄武血魂结晶
+							mycharacter.set_meterial_secret_03(j2["stack"]);
+						else if (j2["itemID"] == "1401200684")  //英雄天魂结晶
+							mycharacter.set_meterial_secret_04(j2["stack"]);
+					}
 				}
 			}
 			mycharacter.set_legendary_core_count(core_count);
@@ -480,7 +495,7 @@ UINT __cdecl CXdracoNftSearchToolDlg::SearchNft(LPVOID pParam) {
 				&& (!haveBook || mycharacter.legendary_book_count() >= 1)
 				) 
 			{
-				CString sn, cc, lv, po, pr, ep, lp, cat, con, lc, lb, turl;
+				CString sn, cc, lv, po, pr, ep, lp, cat, con, lc, lb, ms01, ms02, ms03, ms04, turl;
 				sn.Format(_T("%d"), final_count + 1);
 				switch (mycharacter.character_class()) {
 				case 1:
@@ -498,6 +513,9 @@ UINT __cdecl CXdracoNftSearchToolDlg::SearchNft(LPVOID pParam) {
 				case 5:
 					cc = _T("武士");
 					break;
+				case 6:
+					cc = _T("黑道士");
+					break;
 				}
 				lv.Format(_T("%d"), mycharacter.level());
 				po.Format(_T("%d"), mycharacter.power());
@@ -510,6 +528,10 @@ UINT __cdecl CXdracoNftSearchToolDlg::SearchNft(LPVOID pParam) {
 				if (mycharacter.legendary_core_count()) lc.Format(_T("%d"), mycharacter.legendary_core_count());
 				if (mycharacter.legendary_book_count()) lb.Format(_T("%d"), mycharacter.legendary_book_count());
 				string str = url.baseurl_nft_trade() + to_string(mycharacter.sequence());
+				if (mycharacter.meterial_secret_01() != 0) ms01.Format(_T("%d"), mycharacter.meterial_secret_01());
+				if (mycharacter.meterial_secret_02() != 0) ms02.Format(_T("%d"), mycharacter.meterial_secret_02());
+				if (mycharacter.meterial_secret_03() != 0) ms03.Format(_T("%d"), mycharacter.meterial_secret_03());
+				if (mycharacter.meterial_secret_04() != 0) ms04.Format(_T("%d"), mycharacter.meterial_secret_04());
 				turl = str.c_str();
 				pDlg->m_list.InsertItem(final_count, sn, 0);
 				pDlg->m_list.SetItemText(final_count, 1, cc);
@@ -522,7 +544,11 @@ UINT __cdecl CXdracoNftSearchToolDlg::SearchNft(LPVOID pParam) {
 				pDlg->m_list.SetItemText(final_count, 8, con);
 				pDlg->m_list.SetItemText(final_count, 9, lc);
 				pDlg->m_list.SetItemText(final_count, 10, lb);
-				pDlg->m_list.SetItemText(final_count, 11, turl);
+				pDlg->m_list.SetItemText(final_count, 11, ms01);
+				pDlg->m_list.SetItemText(final_count, 12, ms02);
+				pDlg->m_list.SetItemText(final_count, 13, ms03);
+				pDlg->m_list.SetItemText(final_count, 14, ms04);
+				pDlg->m_list.SetItemText(final_count, 15, turl);
 				pDlg->m_list.UpdateWindow();
 
 				final_count++;

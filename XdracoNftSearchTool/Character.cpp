@@ -11,7 +11,11 @@ Character::Character() :
 	draknyan_icon_path_("https://file.mir4global.com/xdraco-thumb/Content/UI/Atlas_N_Resource/Icon/Pet/Pet_Portrait/Icon_Item_Pet_Cat03.png"),
 	consitution_level_(0),
 	legendary_core_count_(0),
-	legendary_book_count_(0){}
+	legendary_book_count_(0),
+	meterial_secret_01_(0),
+	meterial_secret_02_(0),
+	meterial_secret_03_(0),
+	meterial_secret_04_(0) {}
 
 int Character::row_id() {
 	return row_id_;
@@ -89,6 +93,15 @@ int Character::legendary_core_count() { return legendary_core_count_; }
 void Character::set_legendary_core_count(int legendary_core_count) { legendary_core_count_ = legendary_core_count; }
 int Character::legendary_book_count() { return legendary_book_count_; }
 void Character::set_legendary_book_count(int legendary_book_count) { legendary_book_count_ = legendary_book_count; }
+
+int Character::meterial_secret_01() { return meterial_secret_01_; }
+void Character::set_meterial_secret_01(int meterial_secret_01) { meterial_secret_01_ = meterial_secret_01; }
+int Character::meterial_secret_02() { return meterial_secret_02_; }
+void Character::set_meterial_secret_02(int meterial_secret_02) { meterial_secret_02_ = meterial_secret_02; }
+int Character::meterial_secret_03() { return meterial_secret_03_; }
+void Character::set_meterial_secret_03(int meterial_secret_03) { meterial_secret_03_ = meterial_secret_03; }
+int Character::meterial_secret_04() { return meterial_secret_04_; }
+void Character::set_meterial_secret_04(int meterial_secret_04) { meterial_secret_04_ = meterial_secret_04; }
 
 int Character::consitution_level() {
 	return consitution_level_;
